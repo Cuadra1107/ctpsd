@@ -1,0 +1,42 @@
+!!!
+%html
+%head
+    %title CTP Santo Domingo
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application','data-turbolinks-track' => true
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Yellowtail', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Courgette', media: 'all', 'data-turbolinks-track' => true
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+%body
+    %nav
+        %center
+            %nav.barra
+                %ul
+                    %li.letra= link_to "CTP Santo Domingo", root_path
+                    %li= link_to "Acerca", welcome_acerca_path
+                    %li 
+                        %a{ :href => "https://www.facebook.com/santodomingo.tecnicoprofesional/?fref=ts", :title => "Facebook" }
+                            Facebook
+                    %li= link_to "Blog", posts_path
+                    %li 
+                        - if user_signed_in?
+                            %li= current_user.email
+                            %li= link_to "Salir", destroy_user_session_path, :method => :delete
+                        - else
+                            %li
+                                %a{ :href => "/users/sign_up", :title => "Registrarse" }
+                                    Registrarse
+                            %li= link_to "Entrar", new_user_session_path
+    %nav
+        %p.notice= notice
+        %p.alert= alert
+        
+        =yield
+        %br
+
+%footer.center-xs
+    %br
+    %p
+        %a{ :href => "https://www.facebook.com/cuadra1107", :title => "Roger Cuadra, The Creative" }
+            © Cuadra1107 @ Thecreative - 2016

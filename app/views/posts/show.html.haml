@@ -1,0 +1,22 @@
+%body.center-xs
+%nav
+	%h1= @post.title
+
+%p.center-xs= @post.content
+%hr
+%nav
+	%p.botones= link_to "Editar post", edit_post_path(@post)
+	%p.botones= link_to "Borrar Post", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}
+	%p.botones= link_to "Posts", posts_path
+
+%br
+
+%nav
+	#comments
+		%hr
+		%h2= @post.comments.count
+		=render @post.comments
+		%hr
+		%h3 Añande un comentario
+		=render "comments/form"
+

@@ -1,0 +1,8 @@
+%nav.form_control.center-xs
+	= simple_form_for @post do |f|
+		%p Titulo
+		= f.input :title
+		%p Contenido
+		%div.textarea
+			= f.input :content
+		= f.submit
