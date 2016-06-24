@@ -16,8 +16,8 @@
 	border-radius: 0.5em;
 	color: white;
 	max-width: 600px;
-	padding: 5px 5px;
-    font-size: 1.2em;
+	padding: 2px 2px;
+    font-size: 1em;
     display: inline !important;
 	a {
 			color: white !important;
@@ -37,4 +37,8 @@
 		height: 80px;
     	width: 450px;
 	}
+}
+#usuario{
+	display: inline;
+	padding-left: 2px;
 }
