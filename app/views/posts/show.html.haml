@@ -1,22 +1,27 @@
 %body.center-xs
+%p
+	#especialidad_info
+		= link_to "Volver", posts_path
 %nav
 	%h1= @post.title
 
 %p.center-xs= @post.content
-%hr
 %nav
 	%p.botones= link_to "Editar post", edit_post_path(@post)
 	%p.botones= link_to "Borrar Post", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}
-	%p.botones= link_to "Posts", posts_path
 
 %br
 
 %nav
-	#comments
+	#especialidad_info
 		%hr
-		%h2= @post.comments.count
+		%h3 Número de Comentarios 
+		%h4= @post.comments.count
 		=render @post.comments
 		%hr
 		%h3 Añande un comentario
 		=render "comments/form"
+		%div
+			%p.col-sm-2 Publicando como:  
+			%p.col-sm-2= current_user.email
 

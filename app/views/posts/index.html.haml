@@ -1,19 +1,21 @@
 %nav.center-xs
 	%br
 	%h1 Post Hechos
-	%h2 Recordemos que para publicar un post hay que registrarse o iniciar sesión
+	%h2 Recordemos que para hacer una públicación hay que registrarse o iniciar sesión!
 	%br
 	
 	%br
 	%nav.publicaciones
 	%center 
 		%p.boton= link_to "Nuevo", new_post_path
-	- @post.each do |post|
-		%h2= link_to post.title, post
-		%p
-		publicado hace
-		= time_ago_in_words(post.created_at)
-		by 
-		= post.user.email
+%nav
+	#especialidad_info
+		- @post.each do |post|
+			%h2= link_to post.title, post
+			%p
+			publicado hace
+			= time_ago_in_words(post.created_at)
+			by 
+			= post.user.email
 
 
